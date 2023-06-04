@@ -1,4 +1,5 @@
-module sepiortsm.go
+//module github.com/hashicorp/go-kms-wrapping/wrappers/sepiortsm/v2
+module github.com/hb9cwp/go-kms-wrapping/wrappers/sepiortsm/v2
 
 go 1.20
 
