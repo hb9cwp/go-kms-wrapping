@@ -1,4 +1,5 @@
 // Copyright 2023 Crosscom.ch
+// SPDX-License-Identifier: MPL-2.0 OR BSD-3-Clause
 
 package sepiortms
 
@@ -13,7 +14,31 @@ import (
 	"time"
 
 	wrapping "github.com/hashicorp/go-kms-wrapping/v2"
-	//XXX "github.com/hb9cwp/go-tsm-sdk/"
+	// '$ go mod tidy' fails because go-tsm-sdk is a _private_ repo, error message includes hint:
+	// If this is a private repository, see https://golang.org/doc/faq#git_https for additional information.
+	// `go mod tidy` fails to download private GitHub repository
+	//  https://stackoverflow.com/questions/71851732/go-mod-tidy-fails-to-download-private-github-repository
+	// Go Modules How to Use Private GIT Repository?
+	//  https://www.sobyte.net/post/2022-06/go-mod-private/
+	// $ go env -w GOPRIVATE=github.com/appleboy
+	// $ git config --global url."https://$USERNAME:$ACCESS_TOKEN@github.com".insteadOf "https://github.com"
+	// e.g.
+	// $ go env -w GOPRIVATE=github.com/hb9cwp/go-tsm-sdk
+	// $ git config --global url."https://hb9cwp:<PAT>@github.com".insteadOf "https://github.com"
+	// get a Personal Access Token (PAT) from Github and insert it above from
+	//  https://github.com/settings/apps > Token (classic) > Generate new token (classic) > Scope [X] Repo
+	//tsm "github.com/hb9cwp/go-tsm-sdk"
+	//tsm "github.com/hb9cwp/go-tsm-sdk/sdk/tsm"
+	// use credentials provided by Sepior for Gitlab
+	// $ go env -w GOPRIVATE=gitlab.com/sepior/go-tsm-sdk
+	// $ git config --global url."https://sexxx-0:XtxxxnB@gitlab.com".insteadOf "https://gitlab.com"
+	tsm "gitlab.com/sepior/go-tsm-sdk/sdk/tsm"
+	// specific "Semantic Import" Versioning
+	//  https://go.dev/blog/using-go-modules
+	//  https://research.swtch.com/vgo-import
+	//tsm "gitlab.com/sepior/go-tsm-sdk/v51/sdk/tsm"
+	//tsm "gitlab.com/sepior/go-tsm-sdk/v52.1.1"
+	//tsm "gitlab.com/sepior/go-tsm-sdk/v0.0/sdk/tsm" // v0.0.0-... is a pseudo-version, which is the go command’s version syntax for a specific untagged commit
 )
 
 const (
@@ -114,6 +139,22 @@ func (k *Wrapper) SetConfig(_ context.Context, opt ...wrapping.Option) (*wrappin
 		}
 		k.managementClient = kmsManagementClient
 	}
+
+	// XXX credentials from
+	//  https://github.com/hb9cwp/go-tsm-sdk_rs/blob/3c6bf874f9118ab6deb5b2077840888e7353bc20/app/examples/cipher/encryption_example_modified.go#LL39C1-L45C1
+	// KMaaS by Sepior: swisscom2.pilot.creds.json
+	const credentials string = `{
+	"userID": "Fxnxxx1MC",
+	"urls": [ "https://pxxx1.tsm.sepior.net", "https://pxxx2.tsm.sepior.net", "https://pxxx3.tsm.sepior.net" ],
+	"passwords": [ "lm3xxxTVb", "60wxxxyb0", "RmnxaWe" ]
+}`
+
+	// XXX Create client from credentials
+	tsmClient, err := tsm.NewPasswordClientFromEncoding(credentials)
+	if err != nil {
+		panic(err)
+	}
+	prfClient := tsm.NewPRFClient(tsmClient)
 
 	// Calling Encrypt method with empty string just to validate keyId access and store current keyVersion
 	encryptedBlobInfo, err := k.Encrypt(context.Background(), []byte(""), nil)

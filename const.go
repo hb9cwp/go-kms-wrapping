@@ -18,6 +18,7 @@ const (
 	WrapperTypeOciKms          WrapperType = "ocikms"
 	WrapperTypePkcs11          WrapperType = "pkcs11"
 	WrapperTypePooled          WrapperType = "pooled"
+	WrapperTypeSepiirTSM       WrapperType = "sepiortsm"
 	WrapperTypeShamir          WrapperType = "shamir"
 	WrapperTypeTencentCloudKms WrapperType = "tencentcloudkms"
 	WrapperTypeTransit         WrapperType = "transit"
