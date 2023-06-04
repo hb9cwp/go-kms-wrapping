@@ -42,30 +42,36 @@ import (
 )
 
 const (
-	// OCI KMS key ID to use for encryption and decryption
-	EnvOciKmsWrapperKeyId   = "OCIKMS_WRAPPER_KEY_ID"
-	EnvVaultOciKmsSealKeyId = "VAULT_OCIKMS_SEAL_KEY_ID"
-	// OCI KMS crypto endpoint to use for encryption and decryption
-	EnvOciKmsWrapperCryptoEndpoint   = "OCIKMS_WRAPPER_CRYPTO_ENDPOINT"
-	EnvVaultOciKmsSealCryptoEndpoint = "VAULT_OCIKMS_CRYPTO_ENDPOINT"
-	// OCI KMS management endpoint to manage keys
-	EnvOciKmsWrapperManagementEndpoint   = "OCIKMS_WRAPPER_MANAGEMENT_ENDPOINT"
-	EnvVaultOciKmsSealManagementEndpoint = "VAULT_OCIKMS_MANAGEMENT_ENDPOINT"
-	// Maximum number of retries
-	KMSMaximumNumberOfRetries = 5
+	Alpha = "alpha"
+
+/*
+	 	// OCI KMS key ID to use for encryption and decryption
+		EnvOciKmsWrapperKeyId   = "OCIKMS_WRAPPER_KEY_ID"
+		EnvVaultOciKmsSealKeyId = "VAULT_OCIKMS_SEAL_KEY_ID"
+		// OCI KMS crypto endpoint to use for encryption and decryption
+		EnvOciKmsWrapperCryptoEndpoint   = "OCIKMS_WRAPPER_CRYPTO_ENDPOINT"
+		EnvVaultOciKmsSealCryptoEndpoint = "VAULT_OCIKMS_CRYPTO_ENDPOINT"
+		// OCI KMS management endpoint to manage keys
+		EnvOciKmsWrapperManagementEndpoint   = "OCIKMS_WRAPPER_MANAGEMENT_ENDPOINT"
+		EnvVaultOciKmsSealManagementEndpoint = "VAULT_OCIKMS_MANAGEMENT_ENDPOINT"
+		// Maximum number of retries
+		KMSMaximumNumberOfRetries = 5
+*/
 )
 
 type Wrapper struct {
-	authTypeAPIKey bool   // true for user principal, false for instance principal, default is false
-	keyId          string // OCI KMS keyId
+	/*
+		 	authTypeAPIKey bool   // true for user principal, false for instance principal, default is false
+			keyId          string // OCI KMS keyId
 
-	cryptoEndpoint     string // OCI KMS crypto endpoint
-	managementEndpoint string // OCI KMS management endpoint
+			cryptoEndpoint     string // OCI KMS crypto endpoint
+			managementEndpoint string // OCI KMS management endpoint
 
-	cryptoClient     *keymanagement.KmsCryptoClient     // OCI KMS crypto client
-	managementClient *keymanagement.KmsManagementClient // OCI KMS management client
+			cryptoClient     *keymanagement.KmsCryptoClient     // OCI KMS crypto client
+			managementClient *keymanagement.KmsManagementClient // OCI KMS management client
 
-	currentKeyId *atomic.Value // Current key version which is used for encryption/decryption
+			currentKeyId *atomic.Value // Current key version which is used for encryption/decryption
+	*/
 }
 
 var _ wrapping.Wrapper = (*Wrapper)(nil)
