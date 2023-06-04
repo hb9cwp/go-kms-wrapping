@@ -42,7 +42,7 @@ import (
 )
 
 const (
-	Alpha = "alpha"
+	Alpha = "alpha1"
 
 /*
 	 	// OCI KMS key ID to use for encryption and decryption
