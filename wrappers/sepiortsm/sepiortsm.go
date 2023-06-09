@@ -13,7 +13,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	wrapping "github.com/hashicorp/go-kms-wrapping/v2"
+	//wrapping "github.com/hashicorp/go-kms-wrapping/v2"
+	wrapping "github.com/hb9cwp/go-kms-wrapping/v2"
 	// '$ go mod tidy' fails because go-tsm-sdk is a _private_ repo, error message includes hint:
 	// If this is a private repository, see https://golang.org/doc/faq#git_https for additional information.
 	// `go mod tidy` fails to download private GitHub repository
