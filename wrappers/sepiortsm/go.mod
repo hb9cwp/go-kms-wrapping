@@ -4,7 +4,7 @@ module github.com/hb9cwp/go-kms-wrapping/wrappers/sepiortsm/v2
 go 1.20
 
 require (
-	github.com/hashicorp/go-kms-wrapping/v2 v2.0.9
+	//github.com/hashicorp/go-kms-wrapping/v2 v2.0.9
 	gitlab.com/sepior/go-tsm-sdk v0.0.0-20230510084744-b59f88e4034b
 )
 
