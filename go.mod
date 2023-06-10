@@ -4,7 +4,8 @@ go 1.20
 
 require (
 	github.com/hashicorp/go-uuid v1.0.3
-	github.com/hb9cwp/go-kms-wrapping/v2 v2.2.2
+	//github.com/hb9cwp/go-kms-wrapping/v2
+	github.com/hb9cwp/go-kms-wrapping/v2 v2.3.0
 	github.com/mr-tron/base58 v1.2.0
 	github.com/stretchr/testify v1.8.4
 	golang.org/x/crypto v0.9.0
@@ -21,7 +22,8 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-//replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2.2.3
-//replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping v2.2.3
+//replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2.3.0
+replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping crosscom-mpc
+//replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping v2.3.0
 //replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping v2
 //replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2
