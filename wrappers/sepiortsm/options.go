@@ -1,7 +1,7 @@
 // Copyright 2023 Crosscom.ch
 // SPDX-License-Identifier: MPL-2.0 OR BSD-3-Clause
 
-package sepiortms
+package sepiortsm
 
 import (
 	"fmt"

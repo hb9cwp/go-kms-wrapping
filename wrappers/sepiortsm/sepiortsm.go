@@ -1,7 +1,7 @@
 // Copyright 2023 Crosscom.ch
 // SPDX-License-Identifier: MPL-2.0 OR BSD-3-Clause
 
-package sepiortms
+package sepiortsm
 
 import (
 	"context"
@@ -86,6 +86,8 @@ func NewWrapper() *Wrapper {
 	return k
 }
 
+// SetConfig retrieves DuoKey settings from environment variables or a configuration file.
+// Returns a map that holds non-sensitive configuration info.
 func (k *Wrapper) SetConfig(_ context.Context, opt ...wrapping.Option) (*wrapping.WrapperConfig, error) {
 	opts, err := getOpts(opt...)
 	if err != nil {
@@ -192,6 +194,9 @@ func (k *Wrapper) KeyId(_ context.Context) (string, error) {
 	return k.currentKeyId.Load().(string), nil
 }
 
+// Encrypt is used to encrypt the master key using the the DuoKey service.
+// This returns the ciphertext, and/or any errors from this
+// call. This should be called after the KMS client has been instantiated.
 func (k *Wrapper) Encrypt(ctx context.Context, plaintext []byte, opt ...wrapping.Option) (*wrapping.BlobInfo, error) {
 	if plaintext == nil {
 		return nil, errors.New("given plaintext for encryption is nil")
@@ -238,7 +243,7 @@ func (k *Wrapper) Encrypt(ctx context.Context, plaintext []byte, opt ...wrapping
 		Ciphertext: env.Ciphertext,
 		Iv:         env.Iv,
 		KeyInfo: &wrapping.KeyInfo{
-			// Storing current key version in case we want to re-wrap older entries
+			// Storing current key ID in case we want to re-wrap older entries
 			KeyId:      keyVersion,
 			WrappedKey: []byte(*output.Ciphertext),
 		},
@@ -247,6 +252,7 @@ func (k *Wrapper) Encrypt(ctx context.Context, plaintext []byte, opt ...wrapping
 	return ret, nil
 }
 
+// Decrypt is used to decrypt the ciphertext. This should be called after Init.
 func (k *Wrapper) Decrypt(ctx context.Context, in *wrapping.BlobInfo, opt ...wrapping.Option) ([]byte, error) {
 	if in == nil {
 		return nil, fmt.Errorf("given input for decryption is nil")
@@ -262,6 +268,8 @@ func (k *Wrapper) Decrypt(ctx context.Context, in *wrapping.BlobInfo, opt ...wra
 		DecryptDataDetails: decryptedDataDetails,
 		RequestMetadata:    requestMetadata,
 	}
+
+	// Decrypt the wrapped key with TSM
 	output, err := k.cryptoClient.Decrypt(ctx, input)
 	if err != nil {
 		return nil, fmt.Errorf("error decrypting data: %w", err)
@@ -270,6 +278,8 @@ func (k *Wrapper) Decrypt(ctx context.Context, in *wrapping.BlobInfo, opt ...wra
 	if err != nil {
 		return nil, fmt.Errorf("error base64 decrypting data: %w", err)
 	}
+
+	// Decrypt the envelope
 	envInfo := &wrapping.EnvelopeInfo{
 		Key:        envelopeKey,
 		Iv:         in.Iv,
