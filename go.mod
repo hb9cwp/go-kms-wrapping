@@ -1,11 +1,14 @@
-module github.com/hashicorp/go-kms-wrapping/v2
-//module github.com/hb9cwp/go-kms-wrapping/v2
+//module github.com/hashicorp/go-kms-wrapping/v2
+module github.com/hb9cwp/go-kms-wrapping/v2
+//module /home/rs/vaultMPC/tsm/go-kms-wrapping/v2
 
 go 1.20
 
 require (
 	github.com/favadi/protoc-go-inject-tag v1.4.0
 	github.com/hashicorp/go-uuid v1.0.3
+//	github.com/hashicorp/go-kms-wrapping v2.0.9
+//	github.com/hashicorp/go-kms-wrapping v0.7.1
 	github.com/mr-tron/base58 v1.2.0
 	github.com/stretchr/testify v1.8.2
 	golang.org/x/crypto v0.6.0
@@ -26,10 +29,12 @@ require (
 //  https://github.com/golang/go/issues/39889   which refers to:
 //  https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive
 //replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2.3.0
+//replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2.0.9
+replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v0.7.1
 //replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping crosscom-mpc
 //replace github.com/hashicorp/go-kms-wrapping => /home/rs/vaultMPC/tsm/go-kms-wrapping crosscom-mpc
 //replace github.com/hashicorp/go-kms-wrapping => /home/rs/vaultMPC/tsm/go-kms-wrapping master
-replace github.com/hashicorp/go-kms-wrapping => /home/rs/vaultMPC/tsm/go-kms-wrapping
+//replace github.com/hashicorp/go-kms-wrapping => /home/rs/vaultMPC/tsm/go-kms-wrapping
 //replace github.com/hashicorp/go-kms-wrapping => ../go-kms-wrapping crosscom-mpc
 //replace github.com/hashicorp/go-kms-wrapping => ../go-kms-wrapping
 //replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping v2.3.0
