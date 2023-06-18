@@ -4,7 +4,7 @@ module github.com/hb9cwp/go-kms-wrapping/v2
 go 1.20
 
 require (
-	github.com/favadi/protoc-go-inject-tag v1.4.0
+	github.com/hashicorp/go-kms-wrapping/v2 v2.0.0-00010101000000-000000000000
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/mr-tron/base58 v1.2.0
 	github.com/stretchr/testify v1.8.2
@@ -15,10 +15,10 @@ require (
 
 require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/kr/pretty v0.3.0 // indirect
+	github.com/kr/text v0.2.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/rogpeppe/go-internal v1.6.1 // indirect
 	golang.org/x/sys v0.5.0 // indirect
-	gopkg.in/check.v1 v1.0.0-20190902080502-41f04d3bba15 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
@@ -37,9 +37,10 @@ require (
 //replace github.com/hashicorp/go-kms-wrapping/v2 => ../go-kms-wrapping
 
 //replace github.com/hashicorp/go-kms-wrapping/v2/internal/xor => ../go-kms-wrapping/internal/xor
-replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping/v2 v2.3.0
+replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping/v2 v2.3.2
+
 //replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping v2
 //replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2
 
 //replace github.com/hashicorp/go-kms-wrapping/v2/aead => github.com/hb9cwp/go-kms-wrapping/v2/aead
-replace github.com/hashicorp/go-kms-wrapping/v2/aead => github.com/hb9cwp/go-kms-wrapping/v2/aead v2.3.0
+//replace github.com/hashicorp/go-kms-wrapping/v2/aead => github.com/hb9cwp/go-kms-wrapping/v2/aead v2.3.0
