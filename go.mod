@@ -1,5 +1,5 @@
-//module github.com/hashicorp/go-kms-wrapping/v2
-module github.com/hb9cwp/go-kms-wrapping/v2
+module github.com/hashicorp/go-kms-wrapping/v2
+//module github.com/hb9cwp/go-kms-wrapping/v2
 //module /home/rs/vaultMPC/tsm/go-kms-wrapping/v2
 
 go 1.20
@@ -30,13 +30,15 @@ require (
 //  https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive
 //replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2.3.0
 //replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2.0.9
-replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v0.7.1
+//replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v0.7.1
 //replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping crosscom-mpc
 //replace github.com/hashicorp/go-kms-wrapping => /home/rs/vaultMPC/tsm/go-kms-wrapping crosscom-mpc
 //replace github.com/hashicorp/go-kms-wrapping => /home/rs/vaultMPC/tsm/go-kms-wrapping master
 //replace github.com/hashicorp/go-kms-wrapping => /home/rs/vaultMPC/tsm/go-kms-wrapping
 //replace github.com/hashicorp/go-kms-wrapping => ../go-kms-wrapping crosscom-mpc
 //replace github.com/hashicorp/go-kms-wrapping => ../go-kms-wrapping
+replace github.com/hashicorp/go-kms-wrapping/v2 => ../go-kms-wrapping
+//replace github.com/hashicorp/go-kms-wrapping/v2/internal/xor => ../go-kms-wrapping/internal/xor
 //replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping v2.3.0
 //replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping v2
 //replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2
