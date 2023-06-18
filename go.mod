@@ -34,9 +34,12 @@ require (
 //replace github.com/hashicorp/go-kms-wrapping => /home/rs/vaultMPC/tsm/go-kms-wrapping
 //replace github.com/hashicorp/go-kms-wrapping => ../go-kms-wrapping crosscom-mpc
 //replace github.com/hashicorp/go-kms-wrapping => ../go-kms-wrapping
-replace github.com/hashicorp/go-kms-wrapping/v2 => ../go-kms-wrapping
+//replace github.com/hashicorp/go-kms-wrapping/v2 => ../go-kms-wrapping
 
 //replace github.com/hashicorp/go-kms-wrapping/v2/internal/xor => ../go-kms-wrapping/internal/xor
-//replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping v2.3.0
+replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping/v2 v2.3.0
 //replace github.com/hashicorp/go-kms-wrapping/v2 => github.com/hb9cwp/go-kms-wrapping v2
 //replace github.com/hashicorp/go-kms-wrapping => github.com/hb9cwp/go-kms-wrapping v2
+
+//replace github.com/hashicorp/go-kms-wrapping/v2/aead => github.com/hb9cwp/go-kms-wrapping/v2/aead
+replace github.com/hashicorp/go-kms-wrapping/v2/aead => github.com/hb9cwp/go-kms-wrapping/v2/aead v2.3.0
