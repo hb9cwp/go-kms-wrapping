@@ -1,4 +1,5 @@
-module github.com/hashicorp/go-kms-wrapping/wrappers/awskms/v2
+//module github.com/hashicorp/go-kms-wrapping/wrappers/awskms/v2
+module github.com/hb9cwp/go-kms-wrapping/wrappers/awskms/v2
 
 go 1.20
 
