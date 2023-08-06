@@ -8,6 +8,7 @@ require (
 	github.com/hashicorp/go-hclog v1.4.0
 	github.com/hashicorp/go-kms-wrapping/v2 v2.0.9-0.20230228100945-740d2999c798
 	github.com/hashicorp/go-secure-stdlib/awsutil v0.1.6
+	github.com/hb9cwp/go-kms-wrapping/v2 v2.3.3
 	github.com/stretchr/testify v1.8.2
 )
 
@@ -23,6 +24,6 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	golang.org/x/sys v0.5.0 // indirect
-	google.golang.org/protobuf v1.28.1 // indirect
+	google.golang.org/protobuf v1.30.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
