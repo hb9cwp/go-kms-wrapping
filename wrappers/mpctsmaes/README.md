@@ -1,4 +1,5 @@
-# mpctsmaes: Add Blockdaemon Builder Vault MPC TSM KMS Wrapper
+
+## mpctsmaes: Add Blockdaemon Builder Vault MPC TSM KMS Wrapper
 
 ### Description
 This PR introduces a new KMS wrapper that provides native integration of Threshold Security modules (TSM) using the [Builder Vault](https://builder-vault-tsm.docs.blockdaemon.com/docs/homepage) [Go SDK v2](https://builder-vault-tsm.docs.blockdaemon.com/docs/getting-started-demo-tsm-golang) by Blockdaemon [on GitLab](https://gitlab.com/Blockdaemon/go-tsm-sdkv2) and distributed clusters with Secure Multi-Party Computation (MPC).
@@ -34,5 +35,5 @@ We provide a sample `openbao.hcl` configuration file with pre-configured `plugin
 It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certificates provided during registration.
 
 ### TODO
-[ ] Fix link to PR in openbao-plugins once its #nn is known.
-[ ] Provide a simple command line tool to provision AES keys in TSM clusters, e.g. create, list, delete and eventually backup/restore using the TSM enpoints and credentials from `openbao.hcl` or equivalent env vars.
+- [ ] Fix link to PR in openbao-plugins once its #nn is known.
+- [ ] Provide a simple command line tool to provision AES keys in TSM clusters, e.g. create, list, delete and eventually backup/restore using the TSM enpoints and credentials from `openbao.hcl` or equivalent env vars.
