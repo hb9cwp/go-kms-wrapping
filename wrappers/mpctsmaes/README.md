@@ -36,4 +36,4 @@ It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certi
 
 ### TODO
 - [ ] Fix link to PR in openbao-plugins once its #nn is known.
-- [ ] Provide a simple command line tool to provision AES keys in TSM clusters, e.g. create, list, delete and eventually backup/restore using the TSM enpoints and credentials from `openbao.hcl` or equivalent env vars.
+- [ ] Provide a simple command line tool to provision AES keys in TSM clusters, e.g. create, list, delete distributed symmetric key shares and eventually safely backup/restore using the TSM enpoints and credentials from `openbao.hcl` or equivalent env vars.
