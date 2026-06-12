@@ -34,4 +34,5 @@ We provide a sample `openbao.hcl` configuration file with pre-configured `plugin
 It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certificates provided during registration.
 
 ### TODO
+[ ] Fix link to PR in openbao-plugins once its #nn is known.
 [ ] Provide a simple command line tool to provision AES keys in TSM clusters, e.g. create, list, delete and eventually backup/restore using the TSM enpoints and credentials from `openbao.hcl` or equivalent env vars.
