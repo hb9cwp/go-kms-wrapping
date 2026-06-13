@@ -47,11 +47,15 @@ It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certi
    Partisia Blockchain Foundation, Dec 20, 2023.
    https://www.youtube.com/watch?v=EcTl0ncaIDs
 
-4. Prof. Yehuda Lindell. *Secure Multiparty Computation - MPC has moved from theoretical study to real-world usage. How is it doing?* (Review Article from CACM).
+4. Prof. Yehuda Lindell. *New Directions in Software Key Protection* (Talk, at minute 56:55 about _key management & protection using secure computation of RSA functions by MPC, proactice refresh of private RSA key shares,_ table with __comparison of HSMs vs. Secure Elements vs. TEE vs. MPC__).
+   Unbound Security Labs, Crypto Breakfast, 2019.
+   https://youtu.be/NTJg04-_Q7Q?si=8xqkESppR0EFq5RR&t=3415
+
+5. Prof. Yehuda Lindell. *Secure Multiparty Computation - MPC has moved from theoretical study to real-world usage. How is it doing?* (Review Article from CACM).
    Communications of the ACM, Vol. 64 No. 1, Pages: 86-96, Jan 1 2021.
    https://cacm.acm.org/research/secure-multiparty-computation/ , https://eprint.iacr.org/2020/300.pdf
 
-5. David Evans, Vladimir Kolesnikov and Mike Rosulek. *A Pragmatic Introduction to Secure Multi-Party Computation* (Text Book in PDF).
+6. David Evans, Vladimir Kolesnikov and Mike Rosulek. *A Pragmatic Introduction to Secure Multi-Party Computation* (Text Book in PDF).
    NOW Publishers, December 2018, Last update: 11 June 2022.
    https://securecomputation.org/index.html
 
