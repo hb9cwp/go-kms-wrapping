@@ -40,18 +40,16 @@ It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certi
    https://www.youtube.com/watch?v=xw5tFz7MGDM
 
 2. Prof. Ivan Damgård. *Secure Computation and Key Management* (Keynote).
-   Partisia Foundation / University of Aarhus (Blockdaemon acquired Sepior in January 2022), MPC Alliance, Nov 2, 2022.
+   Partisia Foundation / Aarhus University (Blockdaemon acquired Sepior with TSM v1 in July 2022), MPC Alliance, Nov 2, 2022.
    https://www.youtube.com/watch?v=RMJZ2moMqKw
 
 3. Prof. Ivan Damgård. *Thirty-five years of MPC* (Podcast).
    Partisia Blockchain Foundation, Dec 20, 2023.
    https://www.youtube.com/watch?v=EcTl0ncaIDs
 
-4. Prof. Yehuda Lindell. *Secure Multiparty Computation* (Review Article from CACM),
-   MPC has moved from theoretical study to real-world usage. How is it doing?
+4. Prof. Yehuda Lindell. *Secure Multiparty Computation - MPC has moved from theoretical study to real-world usage. How is it doing?* (Review Article from CACM).
    Communications of the ACM, Vol. 64 No. 1, Pages: 86-96, Jan 1 2021.
-   https://cacm.acm.org/research/secure-multiparty-computation/
-   https://eprint.iacr.org/2020/300.pdf
+   https://cacm.acm.org/research/secure-multiparty-computation/ , https://eprint.iacr.org/2020/300.pdf
 
 5. David Evans, Vladimir Kolesnikov and Mike Rosulek. *A Pragmatic Introduction to Secure Multi-Party Computation* (Text Book in PDF).
    NOW Publishers, December 2018, Last update: 11 June 2022.
