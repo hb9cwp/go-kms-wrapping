@@ -35,26 +35,34 @@ We provide a sample `openbao.hcl` configuration file with pre-configured `plugin
 It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certificates provided during registration.
 
 ### References
-- [1] Secure Mulitparty Computation (Video)
-  Yehuda Lindell
-  Association for Computing Machinery (ACM)
-  January 2021
-  https://www.youtube.com/watch?v=Li2QJ8yImoY
-- [2] Secure Multiparty Computation (Review Article from CACM)
-  MPC has moved from theoretical study to real-world usage. How is it doing?
-  By Yehuda Lindell
-  Communications of the ACM, Vol. 64 No. 1, Pages: 86-96
-  Jan 1 2021
-  https://cacm.acm.org/research/secure-multiparty-computation/
-  https://eprint.iacr.org/2020/300.pdf
-- [3] A Pragmatic Introduction to Secure Multi-Party Computation (Text Book in PDF)
-  David Evans, Vladimir Kolesnikov and Mike Rosulek
-  NOW Publishers, December 2018, Last update: 11 June 2022
-  https://securecomputation.org/index.html
-- [4] CORE Key Management – Advancing HSMs (Video from Whiteboard Session)
-  Prof. Yehuda Lindell, Unbound Security (acquired by Coinbase in November 2021)
-  Apr 4, 2021
-  https://www.youtube.com/watch?v=xw5tFz7MGDM
+1. CORE Key Management – Advancing HSMs (Video from Whiteboard Session)
+   Prof. Yehuda Lindell, Unbound Security Labs (Coinbase aquired Unbound in November 2021)
+   Apr 4, 2021
+   https://www.youtube.com/watch?v=xw5tFz7MGDM
+
+2. Secure Computation and Key Management (Keynote)
+   Prof. Ivan Damgård, Partisia Foundation / University of Aarhus (Blockdaemon acquired Sepior in January 2022)
+   MPC Alliance
+   Nov 2, 2022
+   https://www.youtube.com/watch?v=RMJZ2moMqKw
+
+3. Thirty-five years of MPC (Podcast)
+   Prof. Ivan Damgård, Partisia Blockchain Foundation
+   Dec 20, 2023
+   https://www.youtube.com/watch?v=EcTl0ncaIDs
+
+4. Secure Multiparty Computation (Review Article from CACM)
+   MPC has moved from theoretical study to real-world usage. How is it doing?
+   Prof. Yehuda Lindell
+   Communications of the ACM, Vol. 64 No. 1, Pages: 86-96
+   Jan 1 2021
+   https://cacm.acm.org/research/secure-multiparty-computation/
+   https://eprint.iacr.org/2020/300.pdf
+
+5. A Pragmatic Introduction to Secure Multi-Party Computation (Text Book in PDF)
+   David Evans, Vladimir Kolesnikov and Mike Rosulek
+   NOW Publishers, December 2018, Last update: 11 June 2022
+   https://securecomputation.org/index.html
 
 
 ### TODO
