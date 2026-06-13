@@ -47,7 +47,7 @@ It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certi
    Partisia Blockchain Foundation, Dec 20, 2023.
    https://www.youtube.com/watch?v=EcTl0ncaIDs
 
-4. Prof. Yehuda Lindell. *New Directions in Software Key Protection* (Talk, at minute 56:55 about _key management & protection using secure computation of RSA functions by MPC, proactice refresh of private RSA key shares,_ table with __comparison of HSMs vs. Secure Elements vs. TEE vs. MPC__).
+4. Prof. Yehuda Lindell. *New Directions in Software Key Protection* (Talk, at minute 56:55 about _key management & protection using secure computation of RSA functions by MPC, proactice refresh of private RSA key shares, table with_ ***comparison of HSMs vs. Secure Elements vs. TEE vs. MPC***).
    Unbound Security Labs, Crypto Breakfast, 2019.
    https://youtu.be/NTJg04-_Q7Q?si=8xqkESppR0EFq5RR&t=3415
 
