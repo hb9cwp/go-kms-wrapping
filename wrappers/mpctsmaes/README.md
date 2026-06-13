@@ -35,9 +35,8 @@ We provide a sample `openbao.hcl` configuration file with pre-configured `plugin
 It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certificates provided during registration.
 
 ### References
-1. CORE Key Management – Advancing HSMs (Video from Whiteboard Session)
-   Prof. Yehuda Lindell, Unbound Security Labs (Coinbase aquired Unbound in November 2021)
-   Apr 4, 2021
+1. **Prof. Yehuda Lindell (Apr 4, 2021).** *CORE Key Management – Advancing HSMs.* (Video from Whiteboard Session)
+   Unbound Security Labs (Coinbase aquired Unbound in November 2021)
    https://www.youtube.com/watch?v=xw5tFz7MGDM
 
 2. Secure Computation and Key Management (Keynote)
