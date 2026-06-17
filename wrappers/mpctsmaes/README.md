@@ -26,7 +26,7 @@ and labels in Optimal Asymmetric Encryption Padding (OAEP).
 These native TSM wrappers with their KMS plugins serve as an alternative or replacement for integrations via PKCS#11 libraries provided by Blockdaemon for Builder Vault TSM. 
 They make TSM usage as simple and safe as other cloud KMS providers, fitting seamlessly into existing GitOps workflows. 
 
-TSM clusters are cloud-native, software-only, single statically linked Go binaries. They are containerized and packaged via Helm charts by Blockdaemon for self-hosting on private or public clouds, optional in secure enclaves, and WebAssembly run-times (both server-side and in-browser).
+TSM clusters are cloud-native, software-only, single statically linked Go binaries. They are containerized and packaged via Helm charts by Blockdaemon for self-hosting on private or public clouds, optional in secure enclaves, and WebAssembly run-times (server-side, Web browsers in clients).
 
 ### Testing & Evaluation
 For quick testing and evaluation, you can register for Blockdaemon's ["Hosted Sandbox"](https://builder-vault-tsm.docs.blockdaemon.com/docs/getting-started-hosted-sandbox) portal, which provides 30 days of free access immediatly to a 3-node TSM cluster running on AWS. 
@@ -59,7 +59,14 @@ It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certi
    NOW Publishers, December 2018, Last update: 11 June 2022.
    https://securecomputation.org/index.html
 
-### Appendix A. Sample OpenBao Configuration with TSM Wrappers & KMS Plugins
+### Appendix A. Acknowledgements and Disclosure
+I would like to thank the colleagues at Sepior, then followed through by the new owners at Blockdaemon, for their invaluable guidance during this project and providing me access to their Builder Vault (TSM) product resources for development, test, and evaluation.
+
+This KMS wrapper and plugin has become my personal "pet" project to learn about applied Threshold Cryptography & secure MPC mostly in my spare time. So far, it took four years to identify and implement viable alternatives to conventional trust anchors/root of trusts, including a major re-factoring of Builder Vault and its TSM SDKs.
+
+Now the new KMS plugins by OpenBao v2.6.0 make TSM clusters simple and safe to use for Secrets Management. They are API first, software-only, cloud-native, and can be self-hosted on private platforms, public clouds, or any mix thereof using the same Git Ops processes and tools that manage OpenBao clusters.
+
+### Appendix B. Sample OpenBao Configuration with TSM Wrappers & KMS Plugins
 ```
 ...
 # Must be a real directory (not a symlink) and bao have rx permission
