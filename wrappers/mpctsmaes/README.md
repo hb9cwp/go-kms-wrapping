@@ -5,7 +5,7 @@
 This PR introduces a new KMS wrapper that provides native integration of Threshold Security modules (TSM) using the [Builder Vault](https://builder-vault-tsm.docs.blockdaemon.com/docs/homepage) [Go SDK v2](https://builder-vault-tsm.docs.blockdaemon.com/docs/getting-started-demo-tsm-golang) by Blockdaemon [on GitLab](https://gitlab.com/Blockdaemon/go-tsm-sdkv2) and distributed clusters with Secure Multi-Party Computation (MPC).
 
 ### Cryptographic Architecture
-This first version of the TSM wrapper uses double AES-256-GCM envelope encryption where the AES Key Encryption Key (KEK) never exists in a single place. A simple command line tool provisions secret keys in the TSM using Distributed Key Generation (DKG).
+This first version of the TSM wrapper uses double AES-256-GCM envelope encryption where AES Key Encryption Keys (KEK) never exist in a single place. A simple command line tool provisions secret keys in the TSM using Distributed Key Generation (DKG).
 Further, cryptographic binding using Authenticated Additional Data (AAD) of GCM between the inner and outer encryption prevents attacks such as ciphertext substitution, context confusion, and cut-and-paste attacks.
 
 ### Features & Scope
@@ -59,7 +59,66 @@ It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certi
    NOW Publishers, December 2018, Last update: 11 June 2022.
    https://securecomputation.org/index.html
 
+### Appendix A. Sample OpenBao Configuration with TSM Wrappers & KMS Plugins
+```
+...
+# Must be a real directory (not a symlink) and bao have rx permission
+plugin_directory = "/home/rs/openbao/openbao-plugins_rs"
+#plugin_auto_download = false
+
+# RFC Auto Unseal Plugins: User-facing Description
+#  https://openbao.org/docs/next/rfcs/auto-unseal-plugins/#user-facing-description
+# Complete example
+#  https://openbao.org/docs/next/configuration/plugins/#complete-example
+
+## AWS KMS
+plugin "kms" "aws" {   # start gRPC server process of plugin with AWS KMS wrapper, from 2.6.x and later
+  command     = "openbao-plugin-kms-aws"
+  sha256sum = "9048ce4166022b9e9756fa2a5ffd00e9edfc3e26ebbfbad6edd17812cda7dec4"
+}
+
+# awskms example: access AWS KMS emulation "nsmithuk/local-kms" (Go that runs local)
+#  https://openbao.org/docs/next/configuration/seal/awskms/
+# $ aws kms list-keys --endpoint=http://localhost:8080
+#seal "awskms" {                # use AWS KMS wrapper compiled into OpenBao binary, up to v2.6.x
+seal "aws" {                    # use plugin of AWS KMS wrapper, from 2.6.x and later
+  region     = "eu-west-2"
+  access_key = "111122223333"
+  secret_key = "111122223333"
+  endpoint   = "http://localhost:8080"
+  kms_key_id = "d0707863-1244-4d53-91fe-90fcb5f887a3"
+  #disabled = true      # set true If the migration is from Auto seal to Shamir seal, or to another Auto seal!
+}
+
+## TSM with double AES-256-GCM encryption
+plugin "kms" "mpctsmaes" {  # start gRPC server process of plugin with TSM wrapper, from 2.6.x and later
+  command     = "openbao-plugin-kms-mpctsmaes"
+  sha256sum = "8a3b860df5df3dd17ca1eeae16efef6272011f05d38534831c61d413c0a87295"
+}
+
+# TSM example: access TSM cluster
+seal "mpctsmaes" {           # use plugin of TSM wrapper
+  parties = 3
+  threshold = 1
+  # access Local Deployment of TSM cluster run by Docker Compose
+    #node_url = "http://localhost:8500,http://localhost:8501,http://localhost:8502"  # TSM_NODE_URL
+    #node_apikey = "apikey0,apikey1,apikey2"  # TSM_NODE_APIKEY
+  # access Hosted Sandbox of TSM cluster that Blockdaemon runs on AWS
+    node_url = "https://tsm-sandbox.prd.wallet.blockdaemon.app:8080,https://tsm-sandbox.prd.wallet.blockdaemon.app:8081,https://tsm-sandbox.prd.wallet.blockdaemon.app:8082"
+    node_client_key_0 = "file:///home/rs/tsm/sandbox/config/client0.key"	# or set env var MPCTSM_CLIENT_KEY
+    node_client_key_1 = "file:///home/rs/tsm/sandbox/config/client1.key"
+    node_client_key_2 = "file:///home/rs/tsm/sandbox/config/client2.key"
+    node_client_cert_0 = "file:///home/rs/tsm/sandbox/config/client0.crt"	# or set env var MPCTSM_CLIENT_CERT
+    node_client_cert_1 = "file:///home/rs/tsm/sandbox/config/client1.crt"
+    node_client_cert_2 = "file:///home/rs/tsm/sandbox/config/client2.crt"
+  key_id = "NSroot_SealAES256-001"	# symmetric AES 256 bit key must be pre-provisionned by some managenent tool using TSM SDKv2
+  #disabled = true      # set true If the migration is from Auto seal to Shamir seal, or to another Auto seal!
+}
+...
+```
+
 
 ### TODO
 - [ ] Fix link to PR in openbao-plugins once its #nn is known.
 - [ ] Provide a simple command line tool to provision AES keys in TSM clusters, e.g. create, list, delete distributed symmetric key shares and eventually safely backup/restore using the TSM enpoints and credentials from `openbao.hcl` or equivalent env vars.
+- [ ] Verify `go test` passes all unit tests against the Hosted Sandbox once Blockdaemon upgrades its TSM cluster nodes to LTS (currently v73.2.0), and enables additional TSM features such as support for AES.
