@@ -60,7 +60,7 @@ It illustrates how OpenBao can connect to the Hosted TSM Sandbox using the certi
    https://securecomputation.org/index.html
 
 ### Appendix A. Acknowledgements and Disclosure
-I would like to thank the colleagues at Sepior, then followed through by the new owners at Blockdaemon, for their invaluable guidance during this project and providing me access to their Builder Vault (TSM) product resources for development, test, and evaluation.
+I would like to thank the colleagues at Sepior ApS, then followed through by their new owners at Blockdaemon, for their invaluable guidance during this project and providing me access to their Builder Vault (TSM) product resources for development, test, and evaluation.
 
 This KMS wrapper and plugin has become my personal "pet" project to learn about applied Threshold Cryptography & secure MPC mostly in my spare time. So far, it took four years to identify and implement viable alternatives to conventional trust anchors/root of trusts, including a major re-factoring of Builder Vault and its TSM SDKs.
 
@@ -127,5 +127,7 @@ seal "mpctsmaes" {           # use plugin of TSM wrapper
 
 ### TODO
 - [ ] Fix link to PR in openbao-plugins once its #nn is known.
-- [ ] Provide a simple command line tool to provision AES keys in TSM clusters, e.g. create, list, delete distributed symmetric key shares and eventually safely backup/restore using the TSM enpoints and credentials from `openbao.hcl` or equivalent env vars.
+- [x] Provide a simple command line tool to provision AES keys in TSM clusters, e.g. create, list, delete distributed symmetric key shares, see folder `tsmtoll`.
+- [ ] Extend `tsmtool` for backup & restore using the TSM endpoints and eventually credentials from `openbao.hcl`.
+- [ ] Add `version` output (implicit upon invocation, or optional command) to `tsmtool`
 - [ ] Verify `go test` passes all unit tests against the Hosted Sandbox once Blockdaemon upgrades its TSM cluster nodes to LTS (currently v73.2.0), and enables additional TSM features such as support for AES.
