@@ -1,3 +1,7 @@
+// Copyright (c) 2026 OpenBao a Series of LF Projects, LLC
+// Copyright (c) 2026 CrossCom Engineering (crosscom.ch)
+// SPDX-License-Identifier: MPL-2.0
+
 package main
 
 import (
@@ -24,6 +28,7 @@ import (
 	"gitlab.com/Blockdaemon/go-tsm-sdkv2/v73/tsm/tsmutils"
 )
 
+var version = "v0.1.1"
 var logger hclog.Logger
 
 type ClientConfig struct {
@@ -338,6 +343,8 @@ func confirmDelete(clients []*tsm.Client, playerIDs []int, keyID string, force b
 }
 
 func main() {
+        initLogger("tsmtool")
+        logger.Info("started", "version", version)
 	if len(os.Args) < 2 {
 		printUsage()
 		os.Exit(1)
