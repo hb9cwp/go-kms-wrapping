@@ -1,4 +1,4 @@
-## tsmtool: Command Line Tool to Generate, List, and Delete AES Keys in Builder Vault MPC TSM
+## tsmtool: CLI Tool to Manage Keys in Builder Vault MPC TSM Clusters
 
 ### Description
 `tsmtool` is a simple command line tool (CLI) that uses a current version of Builder Vault's Go SDK to probe, generate, list, and delete secret AES 128, 192, and 256 bit keys in distributed TSM cluster nodes. Also, it can perform AES-GCM encrypt and decrypt functions including additional authenticated data (AAD) for quick testing of secure Multi-Party Computations (MPC) using the secret AES key shares by the distributed TSM cluster nodes.
@@ -8,7 +8,7 @@ Unlike some other KMS wrappers, such as for ex. AWS KMS, the mpctsmaes wrapper d
 ### Distributed Key Generation (DKG)
 Note that TSM nodes perform Distributed Key Generation (DKG) to compute their secret AES key shares. Therefore, secret AES keys never exist in one place, e.g. there is no single point of failure/compromise at any moment!
 
-## Build `tsmtool`
+### Build `tsmtool`
 ```
 $ cd tsmtool
 $ go get -u
@@ -31,7 +31,7 @@ Commands:
 Use 'tsmtool <command> -h' for command-specific flags.
 ```
 
-## probe
+### probe
 ```
 $ LOG_LEVEL=DEBUG go run main.go probe
 2026-07-06T14:54:17.576+0200 [INFO]  probe: started
@@ -127,8 +127,9 @@ client.ProtocolInformation():
   AN10922       : N/A
   Broadcast     : N/A
   RFC5649       : 
+```
 
-## generate
+### generate
 ```
 $ go run main.go generate
 2026-07-06T14:58:09.290+0200 [INFO]  generateKeys: started
@@ -179,7 +180,7 @@ AES key generation succeeded!
 2026-07-06T15:01:11.226+0200 [INFO]  generateKeys: done.
 ```
 
-## list
+### list
 ```
 $ ./tsmtool list
 2026-07-06T15:03:08.560+0200 [INFO]  listKeys: started
@@ -246,7 +247,7 @@ $ ./tsmtool list
 2026-07-06T15:03:08.629+0200 [INFO]  listKeys: done.
 ```
 
-## encrypt
+### encrypt
 ```
 $ LOG_LEVEL=DEBUG ./tsmtool encrypt -keyid rs256-2of3
 2026-07-06T15:22:48.302+0200 [INFO]  encrypt: started
@@ -265,7 +266,7 @@ Encryption successful!
 2026-07-06T15:22:48.994+0200 [INFO]  encrypt: done.
 ```
 
-## decrypt
+### decrypt
 ```
 $ LOG_LEVEL=DEBUG ./tsmtool decrypt -keyid rs256-2of3 -ciphertext fe5a08d0a0bbb085b7341b84a7a3151ed0aad6108395c45596d33283cb9b18a56387d41a9b280c56c989b0015fddc46e7ba6376f3f6c4922757dcbb5121b -iv 48956574bb696dca7e0e3334 -tag a1cbf695213e497b3b93d26320572a5a
 2026-07-06T15:23:57.484+0200 [INFO]  decrypt: started
@@ -281,7 +282,7 @@ Decryption successful!
 2026-07-06T15:23:58.165+0200 [INFO]  decrypt: done.
 ```
 
-## delete
+### delete
 ```
 $ ./tsmtool delete -keyid demoAES192-2of3
 2026-07-06T15:29:18.986+0200 [INFO]  deleteKeys: started
@@ -296,4 +297,3 @@ $ ./tsmtool delete -keyid demoAES192-2of3
 Key shares deleted successfully!
 2026-07-06T15:29:21.369+0200 [INFO]  deleteKeys: done.
 ```
-
